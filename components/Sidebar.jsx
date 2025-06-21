@@ -1,6 +1,25 @@
-import React from 'react'
+"use client";
+import { useEffect } from "react";
 
 function Sidebar() {
+
+    useEffect(() => {
+        // element toggle function
+        const elementToggleFunc = function (elem) {
+            elem.classList.toggle("active");
+        };
+        // sidebar variables
+        const sidebar = document.querySelector("[data-sidebar]");
+        const sidebarBtn = document.querySelector("[data-sidebar-btn]");
+
+        // sidebar toggle functionality for mobile
+        if (sidebar && sidebarBtn) {
+            sidebarBtn.addEventListener("click", function () {
+                elementToggleFunc(sidebar);
+            });
+        }
+    }, []);
+
     return (
         <div>
             <aside className="sidebar" data-sidebar="">
@@ -8,6 +27,7 @@ function Sidebar() {
                     <figure className="avatar-box">
                         <img
                             src="/assets/images/my-avatar.png"
+                            // src="/assets/images/profile-pic.png"
                             alt="Richard hanrick"
                             width={80}
                         />
