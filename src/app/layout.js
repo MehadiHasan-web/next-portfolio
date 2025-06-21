@@ -1,5 +1,23 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import '../../public/assets/css/style.css';
+import Link from "next/link";
+import Head from "next/head";
+// import '../../public/assets/js/script.js';
+
+  // <!--
+  //   - google font link
+  // -->
+  // In Next.js, the <Link> component is used for client-side navigation between pages, not for including external resources like fonts.
+  // To include external fonts, use the <link> tag inside the <Head> component from 'next/head'.
+  // Example:
+
+
+  <Head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  </Head>
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
