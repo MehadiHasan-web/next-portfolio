@@ -1,3 +1,4 @@
+
 import About from "../../components/About";
 import Resume from "../../components/Resume";
 import Portfolio from './../../components/Portfolio';
@@ -11,37 +12,21 @@ export default function Home() {
   return (
     <>
       <main>
-        {/*
-      - #SIDEBAR
-    */}
+        {/* - #SIDEBAR */}
         <Sidebar />
-        {/*
-      - #main-content
-    */}
+        {/* - #main-content */}
         <div className="main-content">
-          {/*
-        - #NAVBAR
-      */}
+          {/* - #NAVBAR */}
           <Navbar />
-          {/*
-        - #ABOUT
-      */}
+          {/*- #ABOUT*/}
           <About />
-          {/*
-        - #RESUME
-      */}
+          {/* - #RESUME */}
           <Resume />
-          {/*
-        - #PORTFOLIO
-      */}
+          {/* - #PORTFOLIO */}
           <Portfolio />
-          {/*
-        - #BLOG
-      */}
+          {/* - #BLOG */}
           <Blog />
-          {/*
-        - #CONTACT
-      */}
+          {/*- #CONTACT */}
           <Contact />
         </div>
       </main>

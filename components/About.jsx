@@ -2,6 +2,20 @@
 import { useEffect } from "react";
 
 export default function About() {
+
+
+    //     Web Development
+    // Building responsive, scalable web applications using Laravel and React.
+
+    // AI Innovation
+    // Developing smart AI agents to automate and enhance workflows.
+
+    // API Design
+    // Creating secure and efficient RESTful APIs for modern apps.
+
+    // Tech Learning
+    // Continuously exploring new technologies and improving skills.
+
     useEffect(() => {
 
         // testimonials variables
@@ -126,17 +140,10 @@ export default function About() {
             </header>
             <section className="about-text">
                 <p>
-                    I'm Creative Director and UI/UX Designer from Sydney, Australia,
-                    working in web development and print media. I enjoy turning complex
-                    problems into simple, beautiful and intuitive designs.
+                    Full-stack developer specializing in Laravel and React.js. Passionate about system design, data structures, and crafting scalable web apps. Continuously exploring AI and innovative technologies to solve real-world problems.
                 </p>
                 <p>
-                    My job is to build your website so that it is functional and
-                    user-friendly but at the same time attractive. Moreover, I add
-                    personal touch to your product and make sure that is eye-catching and
-                    easy to use. My aim is to bring across your message and identity in
-                    the most creative way. I created web design for many famous brand
-                    companies.
+                    A dedicated developer with strong backend and frontend skills, focused on delivering clean, efficient code. Experienced in building robust APIs, optimizing performance, and integrating modern tools like AI agents. Committed to lifelong learning and leveraging new technologies to create impactful, user-friendly digital solutions.
                 </p>
             </section>
             {/*

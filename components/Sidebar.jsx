@@ -28,13 +28,13 @@ function Sidebar() {
                         <img
                             src="/assets/images/my-avatar.png"
                             // src="/assets/images/profile-pic.png"
-                            alt="Richard hanrick"
+                            alt="Mehadi Hasan"
                             width={80}
                         />
                     </figure>
                     <div className="info-content">
-                        <h1 className="name" title="Richard hanrick">
-                            Richard hanrick
+                        <h1 className="name" title="Mehadi Hasan">
+                            Mehadi Hasan
                         </h1>
                         <p className="title">Web developer</p>
                     </div>
@@ -62,8 +62,8 @@ function Sidebar() {
                             </div>
                             <div className="contact-info">
                                 <p className="contact-title">Email</p>
-                                <a href="mailto:richard@example.com" className="contact-link">
-                                    richard@example.com
+                                <a href="mailto:mhshakil06@gmail.com" className="contact-link">
+                                    mhshakil06@gmail.com
                                 </a>
                             </div>
                         </li>
@@ -78,8 +78,8 @@ function Sidebar() {
                             </div>
                             <div className="contact-info">
                                 <p className="contact-title">Phone</p>
-                                <a href="tel:+12133522795" className="contact-link">
-                                    +1 (213) 352-2795
+                                <a href="tel:+8801642872846" className="contact-link">
+                                    +8801642872846
                                 </a>
                             </div>
                         </li>
@@ -94,7 +94,7 @@ function Sidebar() {
                             </div>
                             <div className="contact-info">
                                 <p className="contact-title">Birthday</p>
-                                <time dateTime="1982-06-23">June 23, 1982</time>
+                                <time dateTime="01-18">Jan 18</time>
                             </div>
                         </li>
                         <li className="contact-item">
@@ -108,14 +108,14 @@ function Sidebar() {
                             </div>
                             <div className="contact-info">
                                 <p className="contact-title">Location</p>
-                                <address>Sacramento, California, USA</address>
+                                <address>Chittagong, Bangladesh</address>
                             </div>
                         </li>
                     </ul>
                     <div className="separator" />
                     <ul className="social-list">
                         <li className="social-item">
-                            <a href="#" className="social-link">
+                            <a href="https://www.facebook.com/mehadi.hasan.314721" className="social-link" target="_blank">
                                 <ion-icon
                                     name="logo-facebook"
                                     role="img"
@@ -125,22 +125,22 @@ function Sidebar() {
                             </a>
                         </li>
                         <li className="social-item">
-                            <a href="#" className="social-link">
+                            <a href="https://www.linkedin.com/in/mehedi-hasan-919771185/" className="social-link" target="_blank" >
                                 <ion-icon
-                                    name="logo-twitter"
+                                    name="logo-linkedin"
                                     role="img"
                                     className="md hydrated"
-                                    aria-label="logo twitter"
+                                    aria-label="logo linkedin"
                                 />
                             </a>
                         </li>
                         <li className="social-item">
-                            <a href="#" className="social-link">
+                            <a href="https://github.com/MehadiHasan-web" className="social-link" target="_blank">
                                 <ion-icon
-                                    name="logo-instagram"
+                                    name="logo-github"
                                     role="img"
                                     className="md hydrated"
-                                    aria-label="logo instagram"
+                                    aria-label="logo github"
                                 />
                             </a>
                         </li>
