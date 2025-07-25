@@ -31,7 +31,7 @@ function WhatDo() {
   return (  
     <div>
             <section className="service">
-                <h3 className="h3 service-title">What i'm doing</h3>
+                <h3 className="h3 service-title">What I&apos;m doing</h3>
                 <ul className="service-list">
                     {whatsDo.map((item, idx) => (
                         <li className="service-item" key={idx}>
