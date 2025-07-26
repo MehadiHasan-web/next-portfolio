@@ -20,32 +20,64 @@ function Contact() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        // Method 1: Gmail compose URL (preferred)
-        const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(formData.recipient)}&su=${encodeURIComponent(`${formData.subject}`)}&body=${encodeURIComponent(`Hi,
+        // Detect if user is on mobile device
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        const isAndroid = /Android/i.test(navigator.userAgent);
+        const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+        // Create email content
+        const emailSubject = formData.subject || `Contact from ${formData.name}`;
+        const emailBody = `Hi,
+
 I hope this message finds you well.
 
 ${formData.message}
 
 Best regards,
-${formData.name}`)}&cc=&bcc=`;
+${formData.name}`;
 
-        // Method 2: Mailto fallback
-        const mailtoUrl = `mailto:${formData.recipient}?subject=${encodeURIComponent(`Contact from ${formData.name}`)}&body=${encodeURIComponent(`
-Hi,
-I hope this message finds you well.
+        if (isMobile) {
+            if (isAndroid) {
+                // Android: Use Gmail app intent
+                const gmailIntent = `intent://gmail.com/mail/?view=cm&fs=1&to=${encodeURIComponent(formData.recipient)}&su=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}#Intent;scheme=https;package=com.google.android.gm;end`;
 
-${formData.message}
+                // Try Gmail app first
+                window.location.href = gmailIntent;
 
-Best regards,
+                // Fallback to mailto after delay
+                setTimeout(() => {
+                    const mailtoUrl = `mailto:${formData.recipient}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+                    window.location.href = mailtoUrl;
+                }, 1500);
+            } else if (isIOS) {
+                // iOS: Use Gmail app URL scheme
+                const gmailAppUrl = `googlegmail://co?to=${encodeURIComponent(formData.recipient)}&subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
 
-${formData.name}`)}`;
+                // Try Gmail app first
+                window.location.href = gmailAppUrl;
 
-        // Try Gmail first, fallback to mailto
-        try {
-            window.open(gmailUrl, '_blank');
-        } catch (error) {
-            // Fallback to mailto if Gmail fails
-            window.location.href = mailtoUrl;
+                // Fallback to mailto after delay
+                setTimeout(() => {
+                    const mailtoUrl = `mailto:${formData.recipient}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+                    window.location.href = mailtoUrl;
+                }, 1500);
+            } else {
+                // Other mobile: Use Gmail web with mobile optimization
+                const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(formData.recipient)}&su=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+                window.location.href = gmailUrl;
+            }
+        } else {
+            // Desktop: Use Gmail web interface
+            const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(formData.recipient)}&su=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}&cc=&bcc=`;
+
+            // Try Gmail first, fallback to mailto
+            try {
+                window.open(gmailUrl, '_blank');
+            } catch (error) {
+                // Fallback to mailto if Gmail fails
+                const mailtoUrl = `mailto:${formData.recipient}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+                window.location.href = mailtoUrl;
+            }
         }
     };
 
@@ -195,8 +227,26 @@ ${formData.name}`)}`;
                                 className="md hydrated"
                                 aria-label="paper plane"
                             />
-                            <span>Send Message</span>
+                            <span>
+                                {/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+                                    ? "Open Gmail App"
+                                    : "Send Message"
+                                }
+                            </span>
                         </button>
+
+                        {/* Mobile indicator */}
+                        {/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) && (
+                            <div style={{
+                                marginTop: '10px',
+                                textAlign: 'center',
+                                fontSize: '12px',
+                                color: 'var(--light-gray-70)',
+                                fontStyle: 'italic'
+                            }}>
+                                📱 Will open Gmail app with pre-filled data
+                            </div>
+                        )}
                     </form>
                 </section>
             </article>
