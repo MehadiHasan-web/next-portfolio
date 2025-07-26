@@ -1941,3 +1941,42 @@ textarea.form-input::-webkit-resizer { display: none; }
     transform: translateY(-10px);
   }
 }
+
+
+/* responsive svg */
+@media (max-width: 786px) {
+  .hi-svg {
+    width: 120px;
+    height: 117px;
+  }
+  
+  .hi-animation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 117px;
+    border-radius: 10px;
+    background: var(--bg-gradient-onyx);
+    border: 1px solid var(--jet);
+    animation: fadeIn 0.5s ease-in-out;
+  }
+}
+
+@media (max-width: 580px) {
+  .hi-svg {
+    width: 80px;
+    height: 80px;
+  }  
+  .hi-animation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    background: var(--bg-gradient-onyx);
+    border: 1px solid var(--jet);
+    animation: fadeIn 0.5s ease-in-out;
+  }
+}

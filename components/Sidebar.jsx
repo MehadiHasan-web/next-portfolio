@@ -38,6 +38,7 @@ function Sidebar() {
                         {!showProfile ? (
                             <div className="hi-animation">
                                 <svg
+                                    className="hi-svg"
                                     width="150"
                                     height="146"
                                     viewBox="0 0 200 100"
