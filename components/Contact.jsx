@@ -38,19 +38,19 @@ ${formData.name}`;
 
         if (isMobile) {
             if (isAndroid) {
-                // Android: Use Gmail app intent
-                const gmailIntent = `intent://gmail.com/mail/?view=cm&fs=1&to=${encodeURIComponent(formData.recipient)}&su=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}#Intent;scheme=https;package=com.google.android.gm;end`;
+                // Android: Use a more reliable approach
+                const gmailAppUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(formData.recipient)}&su=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
 
-                // Try Gmail app first
-                window.location.href = gmailIntent;
+                // Method 1: Try Gmail web first (works better on mobile)
+                window.location.href = gmailAppUrl;
 
-                // Fallback to mailto after delay
+                // Method 2: Fallback to mailto after delay
                 setTimeout(() => {
                     const mailtoUrl = `mailto:${formData.recipient}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
                     window.location.href = mailtoUrl;
-                }, 1500);
+                }, 3000);
             } else if (isIOS) {
-                // iOS: Use Gmail app URL scheme
+                // iOS: Use Gmail app URL scheme with fallback
                 const gmailAppUrl = `googlegmail://co?to=${encodeURIComponent(formData.recipient)}&subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
 
                 // Try Gmail app first
@@ -60,7 +60,7 @@ ${formData.name}`;
                 setTimeout(() => {
                     const mailtoUrl = `mailto:${formData.recipient}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
                     window.location.href = mailtoUrl;
-                }, 1500);
+                }, 2000);
             } else {
                 // Other mobile: Use Gmail web with mobile optimization
                 const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(formData.recipient)}&su=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
