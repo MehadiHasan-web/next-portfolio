@@ -3,8 +3,10 @@ import { useEffect, useState } from "react";
 
 function Sidebar() {
     const [showProfile, setShowProfile] = useState(false);
+    const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
+        setMounted(true);
         // Show profile image after 2 seconds
         const timer = setTimeout(() => {
             setShowProfile(true);
@@ -35,7 +37,7 @@ function Sidebar() {
             <aside className="sidebar" data-sidebar="">
                 <div className="sidebar-info">
                     <figure className="avatar-box">
-                        {!showProfile ? (
+                        {mounted && !showProfile ? (
                             <div className="hi-animation">
                                 <svg
                                     className="hi-svg"
