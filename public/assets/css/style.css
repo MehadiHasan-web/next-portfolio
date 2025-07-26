@@ -1337,7 +1337,7 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .sidebar-info { gap: 25px; }
 
-  .avatar-box { border-radius: 30px; }
+  .avatar-box { border-radius: 10px; }
 
   .avatar-box img { width: 120px; }
 
@@ -1879,4 +1879,65 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .timeline-text { max-width: 700px; }
 
+}
+
+/*-----------------------------------*\
+  #HI ANIMATION STYLES
+\*-----------------------------------*/
+
+.hi-animation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 146px;
+  border-radius: 10px;
+  background: var(--bg-gradient-onyx);
+  border: 1px solid var(--jet);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.hi-text {
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.wave-dot {
+  animation: wave 1s ease-in-out infinite;
+}
+
+.profile-image {
+  animation: fadeIn 0.5s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes wave {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }

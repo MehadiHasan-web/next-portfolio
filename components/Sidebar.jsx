@@ -1,7 +1,17 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 function Sidebar() {
+    const [showProfile, setShowProfile] = useState(false);
+
+    useEffect(() => {
+        // Show profile image after 2 seconds
+        const timer = setTimeout(() => {
+            setShowProfile(true);
+        }, 2000);
+
+        return () => clearTimeout(timer);
+    }, []);
 
     useEffect(() => {
         // element toggle function
@@ -25,12 +35,80 @@ function Sidebar() {
             <aside className="sidebar" data-sidebar="">
                 <div className="sidebar-info">
                     <figure className="avatar-box">
-                        <img
-                            // src="/assets/images/my-avatar.png"
-                            src="/assets/images/profile-pic.png"
-                            alt="Mehadi Hasan"
-                            width={80}
-                        />
+                        {!showProfile ? (
+                            <div className="hi-animation">
+                                <svg
+                                    width="150"
+                                    height="146"
+                                    viewBox="0 0 200 100"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <text
+                                        x="110"
+                                        y="80"
+                                        textAnchor="middle"
+                                        fontSize="60"
+                                        fontWeight="bold"
+                                        fill="#007bff"
+                                        className="hi-text"
+                                    >
+                                        Hi!
+                                    </text>
+                                    <circle
+                                        cx="50"
+                                        cy="30"
+                                        r="8"
+                                        fill="#007bff"
+                                        className="wave-dot"
+                                    >
+                                        <animate
+                                            attributeName="cy"
+                                            values="30;20;30"
+                                            dur="1s"
+                                            repeatCount="indefinite"
+                                        />
+                                    </circle>
+                                    <circle
+                                        cx="70"
+                                        cy="30"
+                                        r="8"
+                                        fill="#007bff"
+                                        className="wave-dot"
+                                    >
+                                        <animate
+                                            attributeName="cy"
+                                            values="30;20;30"
+                                            dur="1s"
+                                            begin="0.2s"
+                                            repeatCount="indefinite"
+                                        />
+                                    </circle>
+                                    <circle
+                                        cx="90"
+                                        cy="30"
+                                        r="8"
+                                        fill="#007bff"
+                                        className="wave-dot"
+                                    >
+                                        <animate
+                                            attributeName="cy"
+                                            values="30;20;30"
+                                            dur="1s"
+                                            begin="0.4s"
+                                            repeatCount="indefinite"
+                                        />
+                                    </circle>
+                                </svg>
+                            </div>
+                        ) : (
+                            <img
+                                // src="/assets/images/my-avatar.png"
+                                src="/assets/images/profile-pic.png"
+                                alt="Mehadi Hasan"
+                                width={80}
+                                className="profile-image"
+                            />
+                        )}
                     </figure>
                     <div className="info-content">
                         <h1 className="name" title="Mehadi Hasan">
