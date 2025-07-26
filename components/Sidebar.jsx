@@ -26,8 +26,8 @@ function Sidebar() {
                 <div className="sidebar-info">
                     <figure className="avatar-box">
                         <img
-                            src="/assets/images/my-avatar.png"
-                            // src="/assets/images/profile-pic.png"
+                            // src="/assets/images/my-avatar.png"
+                            src="/assets/images/profile-pic.png"
                             alt="Mehadi Hasan"
                             width={80}
                         />
